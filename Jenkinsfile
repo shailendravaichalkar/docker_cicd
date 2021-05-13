@@ -8,12 +8,12 @@ node {
         remote.user = userName
         remote.password = password
         stage("BUILD") {
-            sshCommand remote: remote, command: "chmod 755 /home/devops/docker_cicd/update_docker.sh" 
-            sshCommand remote: remote, command: "/home/devops/docker_cicd/update_docker.sh shailendravaichalkar/html-demo ${BUILD_ID}" 
+            sshCommand remote: remote, command: "sudo chmod 755 /home/devops/docker_cicd/update_docker.sh" 
+            sshCommand remote: remote, command: "sudo /home/devops/docker_cicd/update_docker.sh shailendravaichalkar/html-demo ${BUILD_ID}" 
         }
         stage("Deploy") {
-            sshCommand remote: remote, command: "chmod 755 /home/devops/docker_cicd/deploy_docker.sh"
-            sshCommand remote: remote, command: "/home/devops/docker_cicd/deploy_docker.sh shailendravaichalkar/html-demo"
+            sshCommand remote: remote, command: "sudo chmod 755 /home/devops/docker_cicd/deploy_docker.sh"
+            sshCommand remote: remote, command: "sudo /home/devops/docker_cicd/deploy_docker.sh shailendravaichalkar/html-demo"
         }
         stage("Post Action") {
             emailext body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}",
