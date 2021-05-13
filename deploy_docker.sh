@@ -22,7 +22,7 @@ if [[ $# -lt 1 ]] ; then
     exit 1
 fi
 
-cd "/home/devops/docker"
+cd "/home/devops/docker_cicd"
 
 echo "Deploying $CONTAINER_NAME to Docker Container"
 
