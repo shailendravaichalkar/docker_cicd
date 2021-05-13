@@ -15,7 +15,7 @@ node {
             sshCommand remote: remote, command: "sudo chmod 755 /home/devops/docker_cicd/deploy_docker.sh"
             sshCommand remote: remote, command: "sudo /home/devops/docker_cicd/deploy_docker.sh shailendravaichalkar/html-demo"
         }
-        stage("Post Action") {
+        stage("Post A") {
             emailext body: "${currentBuild.currentResult}: Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}\n More info at: ${env.BUILD_URL}",
                  subject: "Jenkins Build ${currentBuild.currentResult}: Job ${env.JOB_NAME}",
                  to: "shailendra.v@fiserv.com"
