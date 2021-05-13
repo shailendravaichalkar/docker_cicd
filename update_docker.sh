@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 ########################################
 # Put this on a Server
 # run chmod +x deploy_app.sh to make the script executable
