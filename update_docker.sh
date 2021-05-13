@@ -22,7 +22,6 @@ fi
 cd "/home/devops/docker_cicd"
 
 git pull origin master
-git checkout master
 
 docker build -t ${DOCKER_IMAGE}:${BUILD_ID} .
 
